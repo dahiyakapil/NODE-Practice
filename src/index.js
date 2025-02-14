@@ -6,6 +6,7 @@ import { errorHandler } from "./middlewares/errorHandler.js";
 import { notFoundHandler } from "./middlewares/notFoundHandler.js";
 import authRouter from "./routes/auth.route.js";
 import userRouter from "./routes/user.route.js";
+import fileRouter from "./routes/fileRoutes.js";
 
 
 const app = express();
@@ -33,6 +34,7 @@ connectDB()
   //Routers
   app.use("/api/v1/auth", authRouter)
   app.use("/api/v1/user", userRouter)
+  app.use("/api/v1/file", fileRouter)
 
   app.use(errorHandler);
   app.use(notFoundHandler)
