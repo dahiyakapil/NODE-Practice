@@ -1,0 +1,45 @@
+If we need the form data or body so we have to use express.json middleware 
+
+Steps to create the setup of nodejs application
+
+Step 1 -->
+    create a package.json file using npm init command
+    Then create folders in src
+    Then Connect the db using express
+    Then error handling
+    Then jwt in config folder
+    Then create user schema in models folder
+    After Creating the schema then create a auth contoller and pass the req, res
+    And then go to services folder then write the logic in service 
+    And then import every controller in routes folder
+    And then hit the postman request POST: User Created
+
+    Now passowrd is stored in string (Not good practice)
+    Hash the password using bcrypt
+    Go to model folder and hash the password
+
+    Bcrypt Library:
+    Salt : Generate a random string
+    hash
+    compare : It will compare the plaintext password 
+
+
+
+    update user--> 
+    user update himself -- authMiddleware
+    only admin can update --> isAdmin middleware
+
+    Create authMiddleware inside middlewares folder
+
+    Case1 : User Update himself using AuthMiddleware
+    Then we need token and we will get that from req.headers.authorization
+    req.headers.authorization will return a string so we have to split it and it will be converted into array 
+    In headers.authorization the token is stored like this : Bearer token
+    so we need token so for this we will extract that index 1
+
+    const token = req.header.authorization.split(" ")[1];
+
+    jwt token methods--.
+    1. verify : Matches the signature (We pass the proccess.env.JWT_SECRET) it matches this
+    2. decode : It does not match the signature
+    
